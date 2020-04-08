@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/masked-view": "0.1.5",
     "@react-navigation/bottom-tabs": "^5.2.5",
     "@react-navigation/native": "^5.1.4",
     "expo": "~36.0.0",
@@ -17,10 +18,10 @@
     "react-native-draggable-flatlist": "^2.3.2",
     "react-native-gesture-handler": "~1.5.0",
     "react-native-reanimated": "~1.4.0",
-    "react-native-web": "~0.11.7",
-    "react-native-screens": "2.0.0-alpha.12",
     "react-native-safe-area-context": "0.6.0",
-    "@react-native-community/masked-view": "0.1.5"
+    "react-native-screens": "2.0.0-alpha.12",
+    "react-native-web": "~0.11.7",
+    "rn-swipeable-panel": "^1.0.21"
   },
   "devDependencies": {
     "babel-preset-expo": "~8.1.0",

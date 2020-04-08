@@ -2,6 +2,7 @@ import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import DraggableList from './DraggableList';
+import SwipeableP from './SwipeableP';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -21,6 +22,12 @@ function Draggable() {
   );
 }
 
+function RenderSwipeablePanel() {
+  return (
+    <SwipeableP />
+  );
+}
+
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -29,6 +36,7 @@ export default function App() {
       <Tab.Navigator>
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="DraggableList" component={Draggable} />
+        <Tab.Screen name="SwipeablePanel" component={RenderSwipeablePanel} />
       </Tab.Navigator>
     </NavigationContainer>
   );
