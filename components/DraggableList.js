@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import DraggableFlatList from 'react-native-draggable-flatlist'
-import { View, TouchableOpacity, Text } from 'react-native'
+import { View, TouchableOpacity, Text, FlatList } from 'react-native'
 
 export default class DraggableList extends Component {
     state = {
@@ -25,7 +25,16 @@ export default class DraggableList extends Component {
 
     onDragEnd = (data) => {
         this.setState({ data });
-        console.log(this.state.data);
+    }
+
+    rederNestedItem = ({ item }) => {
+        return (
+            <View>
+                <Text>
+                    {item.key}
+                </Text>
+            </View>
+        )
     }
 
     renderItem = ({ item, index, drag, isActive }) => {
@@ -33,7 +42,7 @@ export default class DraggableList extends Component {
             <TouchableOpacity
                 style={{
                     height: 100,
-                    backgroundColor: isActive ? 'blue' : item.backgroundColor,
+                    backgroundColor: isActive ? 'blue' : 'white',
                     alignItems: 'center',
                     justifyContent: 'center',
                     borderRadius: 10,
@@ -45,20 +54,25 @@ export default class DraggableList extends Component {
                     color: 'white',
                     fontSize: 32,
                 }}>{item.label}</Text>
+                <FlatList
+                    data={this.state.data}
+                    keyExtractor={(item, index) => `draggable-item-${item.key}`}
+                    renderItem={this.rederNestedItem}
+                />
             </TouchableOpacity>
         )
     }
 
     render() {
         return (
-            < View style={{ flex: 1 }}>
+            <View style={{ flex: 1 }}>
                 <DraggableFlatList
                     data={this.state.data}
                     renderItem={this.renderItem}
                     keyExtractor={(item, index) => `draggable-item-${item.key}`}
                     onDragEnd={({ data }) => this.onDragEnd(data)}
                 />
-            </View >
+            </View>
         )
     }
 }

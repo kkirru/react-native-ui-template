@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import DraggableList from './DraggableList';
-import SwipeableP from './SwipeableP';
+import DraggableList from './components/DraggableList';
+import SwipeableP from './components/SwipeableP';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import InnerTabView from './components/InnerTabView';
+
 
 function HomeScreen() {
   return (
@@ -28,6 +30,7 @@ function RenderSwipeablePanel() {
   );
 }
 
+
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -37,6 +40,7 @@ export default function App() {
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="DraggableList" component={Draggable} />
         <Tab.Screen name="SwipeablePanel" component={RenderSwipeablePanel} />
+        <Tab.Screen name="TabView" component={InnerTabView} />
       </Tab.Navigator>
     </NavigationContainer>
   );
